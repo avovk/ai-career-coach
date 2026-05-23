@@ -220,6 +220,55 @@ ai-career-coach/
 |---------|-------------|
 | `/setup` | First-time onboarding — builds your profile and coaching context |
 | `/daily` | Write or update today's coaching note |
+| `/prep <Company>` | Generate a targeted prep plan for an upcoming interview |
+
+---
+
+## Preparing for an Interview — `/prep`
+
+When you have an interview coming up, run:
+
+```
+/prep Stripe
+```
+
+Luma reads the company file, your coaching context, and your recent daily notes, then builds a plan specific to you and that company. It calculates how many days you have left and works backwards.
+
+A prep plan includes:
+
+- **Situation** — interview date, format, and a direct assessment of where you stand
+- **Priority Focus Areas** — 2–4 specific things to study, with the exact LeetCode problems to use and the reason each one matters for this company
+- **Day-by-Day Schedule** — a concrete daily plan through the interview, with the last day before reserved for light review only
+- **Known Weak Spots** — pulled from your notes and coaching context, with one action per gap
+- **Day-Of Checklist** — logistics, mental prep, and company-specific reminders (e.g. "CodeSignal scores testing separately — always write edge case tests")
+- **Questions to Ask** — 4–6 targeted questions based on the round type and what you care about
+
+The plan is also saved to the company file so you can pull up the checklist without re-running the command.
+
+**Example output:**
+
+```
+### Situation
+
+You have 4 days until your Stripe technical screen. Based on your recent
+notes you've been solid on intervals and arrays, but you haven't touched
+backtracking — and Stripe is known for multi-part problems that often
+involve recursive enumeration. That's the gap to close this week.
+
+### Priority Focus Areas
+
+1. **Backtracking** — Stripe frequently uses problems with "generate all
+   combinations" structure as part 2 of a multi-part question.
+   Do: LC 39 Combination Sum, LC 78 Subsets, LC 17 Letter Combinations.
+
+2. **Heap / Top-K** — appears in their phone screens. You solved Meeting
+   Rooms II without a heap; practice using one cleanly.
+   Do: LC 692 Top K Frequent Words, LC 973 K Closest Points.
+
+...
+```
+
+If no company name is passed, Luma lists your active companies with upcoming dates and asks which one to prep for.
 
 ---
 
