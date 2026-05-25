@@ -14,10 +14,24 @@ The engineer's profile and coaching context live in `.ai/daily-context.md`. **Re
 - Ask clarifying questions when needed rather than making assumptions
 - If they haven't run `/setup` yet, prompt them to do so before anything else
 
+## Company Interest Rating
+
+Every company gets an interest rating (1–5) in its file and in `Interviews.md`. Use it to calibrate how much prep energy each company deserves.
+
+| Rating | Meaning | Coaching approach |
+|--------|---------|-------------------|
+| 1/5 | Exploratory / networking only | No dedicated prep. Just show up. |
+| 2/5 | Practice or "wow me" — only take if comp is exceptional | Light prep. Don't let it displace studying. |
+| 3/5 | Genuine interest | Real prep time warranted. |
+| 4/5 | High interest | Prioritize prep. Front-load it. |
+| 5/5 | Top target — make this happen | Full investment. Treat every round seriously. |
+
+**Rule:** Never let a 1–2 company consume prep time that should go to studying or a 4–5 company. Flag it if this is happening.
+
 ## Interview Tracking
 
 `Interviews.md` is the source of truth for all active companies. It contains:
-- A status table (company, role, stage, next action, key dates)
+- A status table (company, role, interest rating, stage, next action, key dates)
 - Important notes per company
 
 Each company has a dedicated file in `./companies/<CompanyName>.md` with full interview history, notes, contacts, prep material, and post-interview reflections.
@@ -45,6 +59,7 @@ Each `./companies/<CompanyName>.md` should follow this structure:
 
 ## Overview
 - **Role:**
+- **Interest:** X/5 — [one line reason]
 - **Team/Org:**
 - **Location / Remote:**
 - **Recruiter:**
