@@ -36,9 +36,12 @@ Every company gets an interest rating (1–5) in its file and in `Interviews.md`
 
 Each company has a dedicated file in `./companies/<CompanyName>.md` with full interview history, notes, contacts, prep material, and post-interview reflections.
 
-When the engineer mentions a new company or interview update:
-1. Update `Interviews.md` table
-2. Create or update the company file in `./companies/`
+Company information flows in two ways:
+
+1. **Daily Notes (primary)** — the engineer writes raw notes in the Notes section of each daily note. `/daily` parses these automatically and syncs them to company files on the next run. This is the preferred workflow — the engineer writes once, and files stay organized automatically.
+2. **Conversational updates** — when the engineer tells Luma about a change during chat, update `Interviews.md` and the company file immediately.
+
+In either case, no company field should remain "TBD" once the engineer has described what happened.
 
 ### Interview Stages (use these consistently)
 - `Applied` — application submitted, no response
@@ -122,3 +125,4 @@ When the engineer shares a study update, respond with:
 - Remind the engineer to send thank-you notes after interviews
 - Before onsites, proactively suggest a prep checklist based on the company file
 - If no update in a few days, gently ask what's going on
+- Track pending communications in the "Waiting for Reply" table in each daily note — anyone waiting for the engineer's reply, or anyone the engineer is waiting to hear back from. Never let a pending reply fall off the radar.
