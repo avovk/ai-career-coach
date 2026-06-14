@@ -25,6 +25,8 @@ Between those commands, you just talk to me. Tell me about a recruiter call, a p
 
 **Your daily notes** live in `daily/yyyy-mm-dd.md`. Each one has an overview of what matters, a prioritized todo list, and a topic tips section if you're working on a new LeetCode pattern.
 
+**Your warmup drills** live in `warmup/warmup-yyyy-mm-dd.<ext>`. Generated automatically each day alongside the daily note — 4–5 mini-functions targeting the day's builtin focus (see below).
+
 **My memory** lives in `.ai/daily-context.md`. This is where I keep your profile, upcoming interview dates, your LeetCode pace, and anything I need to carry forward between sessions. I rewrite it every time you run `/daily`.
 
 ---
@@ -179,6 +181,37 @@ Without notes, I'm just working from the pipeline table and guessing.
 
 ---
 
+## Daily Language Warmup
+
+Every `/daily` run generates `warmup/warmup-yyyy-mm-dd.<ext>` — a 10-minute drill to build muscle memory for the builtins that trip people up under interview pressure.
+
+The file has 4–5 mini-functions with a one-line spec and a blank body to fill in, plus test cases at the bottom:
+
+```python
+# warmup-2026-05-23.py
+from collections import Counter
+
+def most_common_char(s: str) -> str:
+    """Return the character that appears most often in s. If tie, return the first one alphabetically."""
+    pass
+
+def word_frequencies(words: list[str]) -> dict[str, int]:
+    """Return a dict mapping each word to how many times it appears."""
+    pass
+
+# --- tests ---
+assert most_common_char("aabbbc") == "b"
+assert most_common_char("") == ""
+assert word_frequencies(["a", "b", "a"]) == {"a": 2, "b": 1}
+assert word_frequencies([]) == {}
+```
+
+Luma rotates through a builtin schedule across a ~2-week cycle (Counter/defaultdict → sorted/heapq → zip/enumerate → comprehensions → string methods for Python; equivalent patterns for JavaScript). The current position is tracked in `.ai/daily-context.md` and weights toward whatever's most relevant to your upcoming interviews.
+
+The files are drills, not tutorials — no solutions included.
+
+---
+
 ## NeetCode 150 Tracking
 
 If you opt in during `/setup`, I'll track your progress through the NeetCode 150 (easy and medium problems only) in `docs/neetcode-150.md`. Each daily note suggests the next problem in the current topic and includes a tips block with the pattern breakdown and language gotchas.
@@ -206,6 +239,8 @@ ai-career-coach/
 │   └── Stripe.md
 ├── daily/                           ← daily coaching notes
 │   └── 2026-05-23.md
+├── warmup/                          ← daily language drills (auto-generated)
+│   └── warmup-2026-05-23.py
 ├── docs/
 │   └── neetcode-150.md              ← NeetCode 150 tracker (easy/medium)
 └── .ai/
