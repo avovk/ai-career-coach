@@ -110,7 +110,36 @@ Keep it short — this is a quick reference, not a tutorial.]
 [Leave this section empty — it's for the engineer to fill in: progress updates, meeting notes, LeetCode session notes, recruiter call notes, anything. Company-related notes written here will be parsed and synced to company files automatically on the next /daily run.]
 ```
 
-## Step 4 — Update .ai/daily-context.md
+## Step 4 — Generate language warmup drill
+
+Generate a file at `warmup/warmup-YYYY-MM-DD.<ext>` using today's date and the engineer's interview language from `.ai/daily-context.md` (e.g. `.py` for Python, `.js` for JavaScript).
+
+If the file already exists for today, skip this step.
+
+The file contains 4–5 mini-functions as a 10-minute drill to build muscle memory for interview-critical language builtins and patterns. Each function has:
+- A one-line docstring/comment describing what it should do
+- A `pass` / `// TODO` body to fill in
+- Test cases at the bottom
+
+**Builtin rotation schedule** (track current position in `.ai/daily-context.md` under Technical Prep State):
+
+| Cycle | Python | JavaScript |
+|-------|--------|------------|
+| 1 | `Counter` + `defaultdict` | `Map` + object frequency counting |
+| 2 | `sorted(key=...)` + `heapq` | `Array.sort((a,b)=>...)` + `MinHeap` |
+| 3 | `zip` + `enumerate` | `Array.entries()` + destructuring |
+| 4 | List/dict/set comprehensions | `map` / `filter` / `reduce` |
+| 5 | String methods (`split`, `join`, `strip`, `isdigit`) | String methods (`split`, `join`, `trim`, `match`) |
+
+Rotate after roughly 3 days on each group. Weight toward whatever is relevant to upcoming interviews.
+
+Rules:
+- Include the correct import/require at the top so the engineer doesn't have to look it up
+- Each function must need the day's target builtin to implement cleanly (1–3 lines correct)
+- Test cases should cover at least one edge case (empty input, ties, single element)
+- Do not include solutions — the file is a drill, not a tutorial
+
+## Step 5 — Update .ai/daily-context.md
 
 After writing the daily note, rewrite `.ai/daily-context.md` with a cleaned-up version. This file is the skill's own memory — keep it tight and useful.
 
