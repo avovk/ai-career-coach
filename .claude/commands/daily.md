@@ -116,28 +116,77 @@ Generate a file at `warmup/warmup-YYYY-MM-DD.<ext>` using today's date and the e
 
 If the file already exists for today, skip this step.
 
-The file contains 4–5 mini-functions as a 10-minute drill to build muscle memory for interview-critical language builtins and patterns. Each function has:
-- A one-line docstring/comment describing what it should do
-- A `pass` / `// TODO` body to fill in
-- Test cases at the bottom
+The file contains **5–8 functions** as a 10-minute drill to build muscle memory for interview-critical language builtins and patterns.
 
-**Builtin rotation schedule** (track current position in `.ai/daily-context.md` under Technical Prep State):
+### File format
 
-| Cycle | Python | JavaScript |
-|-------|--------|------------|
-| 1 | `Counter` + `defaultdict` | `Map` + object frequency counting |
-| 2 | `sorted(key=...)` + `heapq` | `Array.sort((a,b)=>...)` + `MinHeap` |
-| 3 | `zip` + `enumerate` | `Array.entries()` + destructuring |
-| 4 | List/dict/set comprehensions | `map` / `filter` / `reduce` |
-| 5 | String methods (`split`, `join`, `strip`, `isdigit`) | String methods (`split`, `join`, `trim`, `match`) |
+The file must follow this structure exactly:
 
-Rotate after roughly 3 days on each group. Weight toward whatever is relevant to upcoming interviews.
+```python
+"""
+Python Warmup — YYYY-MM-DD
+Focus: <topic> — <short description>
 
-Rules:
-- Include the correct import/require at the top so the engineer doesn't have to look it up
-- Each function must need the day's target builtin to implement cleanly (1–3 lines correct)
-- Test cases should cover at least one edge case (empty input, ties, single element)
-- Do not include solutions — the file is a drill, not a tutorial
+Goals:
+- <specific thing to practice>
+- <specific thing to practice>
+- <specific thing to practice>
+Run with: python warmup/warmup-YYYY-MM-DD.py
+"""
+
+import <module>
+from typing import List, Optional  # add as needed
+
+
+def function_name(param: Type) -> ReturnType:
+    # One-line description of what this function should do.
+    # Example: function_name([1, 2, 3]) → 6
+    # Example: function_name([]) → 0
+    pass
+
+
+# ... more functions ...
+
+
+# ---------------------------------------------------------------------------
+# Tests — run to check your work
+# ---------------------------------------------------------------------------
+
+def check(name, got, expected):
+    if got == expected:
+        print(f"  ✓ {name}")
+    else:
+        print(f"  ✗ {name}  expected={expected!r}  got={got!r}")
+
+
+print("function_name:")
+check("basic",        function_name([1, 2, 3]), 6)
+check("empty",        function_name([]),         0)
+check("single item",  function_name([5]),        5)
+
+# ... more test groups ...
+```
+
+**Rules:**
+- Module docstring at the top with topic, goals, and `Run with:` line
+- Each function uses **inline comments** (not docstrings) — description on one line, then one or two `# Example:` lines showing input → output
+- Function bodies are **stubs only** (`pass`) — never fill in the implementation
+- `check()` helper always has the same signature: `(name, got, expected)`
+- Tests are **grouped by function name** with a `print("function_name:")` header before each group
+- Each function gets at least 3 test cases: one happy path, one edge case (empty / single element), one interesting case (ties, negatives, duplicates, etc.)
+- Include the correct `import` at the top so the engineer doesn't need to look it up
+
+### Builtin rotation schedule
+
+Track current position in `.ai/daily-context.md` under Technical Prep State. Advance one step per day.
+
+**Python:**
+Counter → defaultdict → sorted/heapq → zip/enumerate → bisect → deque → set → comprehensions → strings → backtracking → repeat
+
+**JavaScript:**
+Map/frequency counting → Array.sort + custom comparator → Array.entries/destructuring → map/filter/reduce → Set → string methods → repeat
+
+Rotate one step per session. Weight toward whatever builtin is most relevant to upcoming interviews — if a heap problem is two days away, stay on heapq an extra day.
 
 ## Step 5 — Update .ai/daily-context.md
 

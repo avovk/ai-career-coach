@@ -185,30 +185,64 @@ Without notes, I'm just working from the pipeline table and guessing.
 
 Every `/daily` run generates `warmup/warmup-yyyy-mm-dd.<ext>` — a 10-minute drill to build muscle memory for the builtins that trip people up under interview pressure.
 
-The file has 4–5 mini-functions with a one-line spec and a blank body to fill in, plus test cases at the bottom:
+The file has **5–8 functions** with inline comments describing what each should do, plus a test suite at the bottom you can run to check your work:
 
 ```python
-# warmup-2026-05-23.py
+"""
+Python Warmup — 2026-05-23
+Focus: Counter — frequency counting and most-common patterns
+
+Goals:
+- Counter() from an iterable to count elements
+- .most_common(k) for top-k without sorting manually
+- counter arithmetic (+, -, &, |)
+Run with: python warmup/warmup-2026-05-23.py
+"""
+
 from collections import Counter
+from typing import List
+
 
 def most_common_char(s: str) -> str:
-    """Return the character that appears most often in s. If tie, return the first one alphabetically."""
+    # Return the character that appears most often in s.
+    # If there's a tie, return the alphabetically first character.
+    # Example: most_common_char("aabbbc") → "b"
+    # Example: most_common_char("ab") → "a"
     pass
 
-def word_frequencies(words: list[str]) -> dict[str, int]:
-    """Return a dict mapping each word to how many times it appears."""
+
+def word_frequencies(words: List[str]) -> dict:
+    # Return a dict mapping each word to how many times it appears.
+    # Example: word_frequencies(["a", "b", "a"]) → {"a": 2, "b": 1}
+    # Example: word_frequencies([]) → {}
     pass
 
-# --- tests ---
-assert most_common_char("aabbbc") == "b"
-assert most_common_char("") == ""
-assert word_frequencies(["a", "b", "a"]) == {"a": 2, "b": 1}
-assert word_frequencies([]) == {}
+
+# ---------------------------------------------------------------------------
+# Tests — run to check your work
+# ---------------------------------------------------------------------------
+
+def check(name, got, expected):
+    if got == expected:
+        print(f"  ✓ {name}")
+    else:
+        print(f"  ✗ {name}  expected={expected!r}  got={got!r}")
+
+
+print("most_common_char:")
+check("basic",     most_common_char("aabbbc"), "b")
+check("tie",       most_common_char("ab"),     "a")
+check("single",    most_common_char("z"),      "z")
+
+print("\nword_frequencies:")
+check("basic",     word_frequencies(["a", "b", "a"]), {"a": 2, "b": 1})
+check("empty",     word_frequencies([]),               {})
+check("all same",  word_frequencies(["x", "x"]),       {"x": 2})
 ```
 
-Luma rotates through a builtin schedule across a ~2-week cycle (Counter/defaultdict → sorted/heapq → zip/enumerate → comprehensions → string methods for Python; equivalent patterns for JavaScript). The current position is tracked in `.ai/daily-context.md` and weights toward whatever's most relevant to your upcoming interviews.
+Luma rotates through a builtin schedule (Counter → defaultdict → sorted/heapq → zip/enumerate → bisect → deque → set → comprehensions → strings → backtracking for Python; equivalent patterns for JavaScript). The current position is tracked in `.ai/daily-context.md` and weights toward whatever's most relevant to your upcoming interviews.
 
-The files are drills, not tutorials — no solutions included.
+Run the file to see ✓/✗ output for each test. The files are drills, not tutorials — no solutions included.
 
 ---
 

@@ -103,8 +103,8 @@ Each `./companies/<CompanyName>.md` should follow this structure:
 - Flag if too much easy-only grinding or if a key topic is being avoided
 - Push for pattern recognition over memorization — always ask "why does this approach work?"
 - If they're tracking NeetCode 150, reference `docs/neetcode-150.md` for progress and next problems
-- Include **Topic Tips & JS Gotchas** (or relevant language gotchas) in daily notes whenever covering a new pattern
-- All code examples must use fenced code blocks with the language tag (e.g. ` ```js `)
+- Include a **Topic Tips** section in daily notes whenever covering a new or recently-started pattern — core template, 2–3 language-specific gotchas, one concrete example tied to that day's problems
+- All code examples must use fenced code blocks with the correct language tag — read the engineer's language from `.ai/daily-context.md` (e.g. ` ```python ` or ` ```js `)
 
 ### System Design
 - Ask what resources they're using (Grokking, DDIA, Alex Xu, etc.)
