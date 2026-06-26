@@ -27,6 +27,8 @@ Between those commands, you just talk to me. Tell me about a recruiter call, a p
 
 **Your warmup drills** live in `warmup/warmup-yyyy-mm-dd.<ext>`. Generated automatically each day alongside the daily note — 4–5 mini-functions targeting the day's builtin focus (see below).
 
+**Your interview problems** live in `warmup/interview-YYMMDD-company-slug.py`. Every time you debrief a coding problem from an interview, Luma creates a file with the clean problem statement, an empty stub, time/space complexity placeholders, and test cases — so you can re-solve every problem you've been asked until you know it cold.
+
 **My memory** lives in `.ai/daily-context.md`. This is where I keep your profile, upcoming interview dates, your LeetCode pace, and anything I need to carry forward between sessions. I rewrite it every time you run `/daily`.
 
 ---
@@ -273,8 +275,10 @@ ai-career-coach/
 │   └── Stripe.md
 ├── daily/                           ← daily coaching notes
 │   └── 2026-05-23.md
-├── warmup/                          ← daily language drills (auto-generated)
-│   └── warmup-2026-05-23.py
+├── warmup/                          ← daily language drills + interview re-solves
+│   ├── warmup-2026-05-23.py         ← daily builtin drill (auto-generated)
+│   ├── interview-260610-stripe.py   ← re-solve a problem from a real interview
+│   └── check.py                     ← shared test helper (import in all warmup files)
 ├── docs/
 │   └── neetcode-150.md              ← NeetCode 150 tracker (easy/medium)
 └── .ai/

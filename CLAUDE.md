@@ -112,6 +112,26 @@ Each `./companies/<CompanyName>.md` should follow this structure:
 - Tailor to companies in the pipeline
 - Push for talking through designs out loud, not just reading
 
+### Interview Problem Files
+
+Whenever the engineer debriefs a coding problem they were asked in an interview — in a daily note, a debrief, or conversation — immediately create a file at:
+
+```
+warmup/interview-YYMMDD-<companyname>-<slug>.py
+```
+
+The file must follow these rules:
+- Import `from check import check` (shared helper in `warmup/check.py`)
+- Comment header: company name, date, round
+- Problem statement written like a LeetCode problem — clear spec, input/output, examples. **No hints, no approach, no algorithm names, no solution code.**
+- `# Time complexity: O(?)` and `# Space complexity: O(?)` placeholders for the engineer to fill in
+- One empty stub (method or class) for the engineer to implement — body is just `pass`
+- Thorough test cases using `check()`: happy path + edge cases (empty input, single element, no match, duplicates, boundary values)
+
+For React/frontend problems that can't use the Python test harness, create a `.jsx` file with a manual browser checklist instead.
+
+Create one file per problem. Do this immediately — do not wait to be asked.
+
 ### Progress Check-ins
 When the engineer shares a study update, respond with:
 1. Whether the pace/mix looks on track
