@@ -122,7 +122,7 @@ warmup/interview-YYMMDD-<companyname>-<slug>.py
 
 The file must follow these rules:
 - Import `from check import check` (shared helper in `warmup/check.py`)
-- Comment header: company name, date, round
+- Comment header: company name, date, round, and the closest LeetCode problem if one exists (e.g. `# Closest LeetCode: LC 207 — Course Schedule (Medium)`). If there's no direct match, note that explicitly.
 - Problem statement written like a LeetCode problem — clear spec, input/output, examples. **No hints, no approach, no algorithm names, no solution code.**
 - `# Time complexity: O(?)` and `# Space complexity: O(?)` placeholders for the engineer to fill in
 - One empty stub (method or class) for the engineer to implement — body is just `pass`
